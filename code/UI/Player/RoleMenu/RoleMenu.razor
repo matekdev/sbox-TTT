@@ -11,8 +11,16 @@
     <div class="fullscreen-dark-background" />
     <div class="menu">
         <div class="header text-shadow">
-            <text class="title"><span style="color: @player.Role.Color.Hex">@player.Role.Title</span> Menu</text>
-            <text class="subtext"><span class="text-color-tertiary">@player.Credits credits</span> available</text>
+            <div class="title">
+                <text style="color: @player.Role.Color.Hex">@player.Role.Title</text>
+                <div style="width: 10px;"/>
+                <text>Menu</text>
+            </div>
+            <div class="subtext">
+                <text class="text-color-tertiary">@player.Credits credits</text>
+                <div style="width: 5px;"/>
+                <text>available</text>
+            </div>
         </div>
         <div class="tabs">
             @if (_access[Tab.Shop].Invoke())

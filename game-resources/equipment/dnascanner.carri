@@ -5,7 +5,7 @@
   "ViewModelPath": "",
   "HandsModelPath": "",
   "HoldType": "None",
-  "WorldModelPath": "models/dnascanner/huladoll.vmdl",
+  "WorldModelPath": "models/hula_toy/hula_toy.vmdl",
   "DeployTime": 0,
   "IsLimited": false,
   "Price": 100,

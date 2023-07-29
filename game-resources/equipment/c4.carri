@@ -5,7 +5,7 @@
   "ViewModelPath": "",
   "HandsModelPath": "",
   "HoldType": "None",
-  "WorldModelPath": "models/c4/c4.vmdl",
+  "WorldModelPath": "models/c4explosive/c4explosive.vmdl",
   "DeployTime": 0,
   "IsLimited": true,
   "Price": 100,
