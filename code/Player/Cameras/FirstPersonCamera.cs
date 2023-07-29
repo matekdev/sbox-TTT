@@ -38,7 +38,7 @@ public class FirstPersonCamera : CameraMode
 
 		// TODO: We need some way to override the FieldOfView from a carriable.
 		// We also need to constantly update the field of view here incase the player changes their settings.
-		if ( target.ActiveCarriable is Scout || target.ActiveCarriable is Binoculars )
+		if ( target.ActiveCarriable is Binoculars )
 			return;
 
 		Camera.FieldOfView = Screen.CreateVerticalFieldOfView( Game.Preferences.FieldOfView );

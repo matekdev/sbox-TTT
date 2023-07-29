@@ -95,11 +95,8 @@ public partial class InProgress : BaseState
 
 	private static void GiveFixedLoadout( Player player )
 	{
-		if ( player.Inventory.Add( new MP5() ) )
+		if ( player.Inventory.Add( new Pistol() ) )
 			player.GiveAmmo( AmmoType.PistolSMG, 120 );
-
-		if ( player.Inventory.Add( new Revolver() ) )
-			player.GiveAmmo( AmmoType.Magnum, 20 );
 	}
 
 	public override void OnSecond()

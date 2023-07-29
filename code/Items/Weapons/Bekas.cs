@@ -1,64 +1,64 @@
-using Editor;
-using Sandbox;
+// using Editor;
+// using Sandbox;
 
-namespace TTT;
+// namespace TTT;
 
-[Category( "Weapons" )]
-[EditorModel( "models/weapons/w_bekas.vmdl" )]
-[HammerEntity]
-[Library( "ttt_weapon_bekas" )]
-[Title( "Bekas-M" )]
-public partial class Bekas : Weapon
-{
-	private bool _attackedDuringReload = false;
+// [Category( "Weapons" )]
+// [EditorModel( "models/weapons/w_bekas.vmdl" )]
+// [HammerEntity]
+// [Library( "ttt_weapon_bekas" )]
+// [Title( "Bekas-M" )]
+// public partial class Bekas : Weapon
+// {
+// 	private bool _attackedDuringReload = false;
 
-	public override void ActiveStart( Player player )
-	{
-		base.ActiveStart( player );
+// 	public override void ActiveStart( Player player )
+// 	{
+// 		base.ActiveStart( player );
 
-		_attackedDuringReload = false;
-		TimeSinceReload = 0f;
-	}
+// 		_attackedDuringReload = false;
+// 		TimeSinceReload = 0f;
+// 	}
 
-	protected override bool CanReload()
-	{
-		if ( !base.CanReload() )
-			return false;
+// 	protected override bool CanReload()
+// 	{
+// 		if ( !base.CanReload() )
+// 			return false;
 
-		var rate = Info.PrimaryRate;
-		if ( rate <= 0 )
-			return true;
+// 		var rate = Info.PrimaryRate;
+// 		if ( rate <= 0 )
+// 			return true;
 
-		return TimeSincePrimaryAttack > (1 / rate);
-	}
+// 		return TimeSincePrimaryAttack > (1 / rate);
+// 	}
 
-	public override void Simulate( IClient owner )
-	{
-		base.Simulate( owner );
+// 	public override void Simulate( IClient owner )
+// 	{
+// 		base.Simulate( owner );
 
-		if ( IsReloading && Input.Pressed( InputAction.PrimaryAttack ) )
-			_attackedDuringReload = true;
-	}
+// 		if ( IsReloading && Input.Pressed( InputAction.PrimaryAttack ) )
+// 			_attackedDuringReload = true;
+// 	}
 
-	protected override void OnReloadFinish()
-	{
-		IsReloading = false;
+// 	protected override void OnReloadFinish()
+// 	{
+// 		IsReloading = false;
 
-		TimeSincePrimaryAttack = 0;
+// 		TimeSincePrimaryAttack = 0;
 
-		AmmoClip += TakeAmmo( 1 );
+// 		AmmoClip += TakeAmmo( 1 );
 
-		if ( !_attackedDuringReload && AmmoClip < Info.ClipSize && Owner.AmmoCount( Info.AmmoType ) > 0 )
-			Reload();
-		else
-			FinishReload();
+// 		if ( !_attackedDuringReload && AmmoClip < Info.ClipSize && Owner.AmmoCount( Info.AmmoType ) > 0 )
+// 			Reload();
+// 		else
+// 			FinishReload();
 
-		_attackedDuringReload = false;
-	}
+// 		_attackedDuringReload = false;
+// 	}
 
-	[ClientRpc]
-	protected void FinishReload()
-	{
-		ViewModelEntity?.SetAnimParameter( "reload_finished", true );
-	}
-}
+// 	[ClientRpc]
+// 	protected void FinishReload()
+// 	{
+// 		ViewModelEntity?.SetAnimParameter( "reload_finished", true );
+// 	}
+// }
