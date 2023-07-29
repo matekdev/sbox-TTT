@@ -6,6 +6,8 @@ Completely free and MIT licensed implementation of the classic "Trouble in Terro
 
 ## License
 
+Code is licensed under [MIT](https://github.com/matekdev/sbox-TTT/blob/main/LICENSE)
+
 ## Credits
 ### Programmers
 [matekdev](https://github.com/matekdev)
