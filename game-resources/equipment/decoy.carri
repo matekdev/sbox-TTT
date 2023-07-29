@@ -5,7 +5,7 @@
   "ViewModelPath": "",
   "HandsModelPath": "",
   "HoldType": "None",
-  "WorldModelPath": "models/decoy/decoy.vmdl",
+  "WorldModelPath": "models/decoy/beacon_decoy.vmdl",
   "DeployTime": 0,
   "IsLimited": true,
   "Price": 100,

@@ -5,7 +5,7 @@
   "ViewModelPath": "",
   "HandsModelPath": "",
   "HoldType": "None",
-  "WorldModelPath": "models/radio/radioterror.vmdl",
+  "WorldModelPath": "models/ttt_newradio/radioterror.vmdl",
   "DeployTime": 0,
   "IsLimited": true,
   "Price": 100,

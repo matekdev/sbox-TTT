@@ -9,7 +9,7 @@ namespace TTT;
 [Title( "Health Station" )]
 public partial class HealthStationEntity : Prop, IEntityHint, IUse
 {
-	private static readonly Model _worldModel = Model.Load( "models/health_station/health_station.vmdl" );
+	private static readonly Model _worldModel = Cloud.Model( "pukes.microwave" );
 
 	[Net]
 	public float StoredHealth { get; set; } = 200f;

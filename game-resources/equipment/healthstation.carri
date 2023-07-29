@@ -5,7 +5,7 @@
   "ViewModelPath": "",
   "HandsModelPath": "",
   "HoldType": "None",
-  "WorldModelPath": "models/health_station/health_station.vmdl",
+  "WorldModelPath": "models/ttt_microwave/microwave.vmdl",
   "DeployTime": 0,
   "IsLimited": true,
   "Price": 100,

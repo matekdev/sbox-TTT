@@ -7,7 +7,7 @@ namespace TTT;
 [Title( "Decoy" )]
 public partial class DecoyEntity : Prop, IEntityHint, IUse
 {
-	private static readonly Model _worldModel = Model.Load( "models/decoy/decoy.vmdl" );
+	private static readonly Model _worldModel = Cloud.Model( "pukes.beacon_decoy" );
 
 	public override void Spawn()
 	{

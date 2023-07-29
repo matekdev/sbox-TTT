@@ -5,7 +5,7 @@
   "ViewModelPath": "",
   "HandsModelPath": "",
   "HoldType": "None",
-  "WorldModelPath": "models/defuser/defuser.vmdl",
+  "WorldModelPath": "models/defuser/snippers.vmdl",
   "DeployTime": 0,
   "IsLimited": true,
   "Price": 100,

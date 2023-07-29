@@ -28,7 +28,7 @@ public partial class C4Entity : Prop, IEntityHint
 		Color.FromBytes( 255, 160, 50, 255 ) // Brown
 	};
 
-	public static readonly Model WorldModel = Model.Load( "models/c4/c4.vmdl" );
+	public static readonly Model WorldModel = Cloud.Model( "pukes.c4explosive" );
 
 	[Net]
 	public bool IsArmed { get; private set; }
