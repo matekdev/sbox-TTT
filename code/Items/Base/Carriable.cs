@@ -28,10 +28,10 @@ public abstract partial class Carriable : AnimatedEntity, IEntityHint, IUse
 		set => base.Owner = value;
 	}
 
-	public BaseViewModel HandsModelEntity { get; private set; }
+	public ViewModel HandsModelEntity { get; private set; }
 	public CarriableInfo Info { get; private set; }
 	public Player PreviousOwner { get; private set; }
-	public BaseViewModel ViewModelEntity { get; protected set; }
+	public ViewModel ViewModelEntity { get; protected set; }
 
 	/// <summary>
 	/// Return the entity we should be spawning particles from.
@@ -194,7 +194,7 @@ public abstract partial class Carriable : AnimatedEntity, IEntityHint, IUse
 
 		if ( Info.HandsModel is not null )
 		{
-			HandsModelEntity = new BaseViewModel
+			HandsModelEntity = new ViewModel
 			{
 				EnableViewmodelRendering = true,
 				Model = Info.HandsModel,

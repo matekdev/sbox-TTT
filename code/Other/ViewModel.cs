@@ -2,7 +2,7 @@ using Sandbox;
 
 namespace TTT;
 
-public class ViewModel : BaseViewModel
+public class ViewModel : AnimatedEntity
 {
 	protected float SwingInfluence = 0.05f;
 	protected float ReturnSpeed = 5.0f;
@@ -18,7 +18,7 @@ public class ViewModel : BaseViewModel
 	private float _yawInertia;
 	private float _pitchInertia;
 
-	public override void PlaceViewmodel()
+	public void PlaceViewmodel()
 	{
 		if ( !Game.LocalPawn.IsValid() )
 			return;
