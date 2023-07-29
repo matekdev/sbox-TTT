@@ -6,7 +6,7 @@ Completely free and MIT licensed implementation of the classic "Trouble in Terro
 
 ## License
 
-Code is licensed under [MIT](https://github.com/matekdev/sbox-TTT/blob/main/LICENSE)
+Licensed under [MIT](https://github.com/matekdev/sbox-TTT/blob/main/LICENSE)
 
 ## Credits
 ### Programmers
@@ -14,8 +14,15 @@ Code is licensed under [MIT](https://github.com/matekdev/sbox-TTT/blob/main/LICE
 
 [kolexxx](https://github.com/kolexxx)
 
-### Modelers
-TODO
+### Contributors
+[dch-GH](https://github.com/dch-GH)
+[TheNameIsMatt](https://github.com/TheNameIsMatt)
+[nywek](https://github.com/nywek)
+[the-remeko](https://github.com/the-remeko)
+[mclarty3](https://github.com/mclarty3)
+[youarereadingthis](https://github.com/youarereadingthis)
+[ndo360](https://github.com/ndo360)
+[Jammie3d](https://github.com/Jammie3d)
 
 ## Special Thanks
 [Thanks to Bad King Urgrain for creating "Trouble in Terrorist Town"](https://ttt.badking.net/) for [Garry's Mod](https://gmod.facepunch.com/) for which sbox-TTT takes inspiration from.
