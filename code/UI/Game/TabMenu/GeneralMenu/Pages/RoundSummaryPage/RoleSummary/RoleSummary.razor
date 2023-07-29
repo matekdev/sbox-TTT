@@ -1,0 +1,25 @@
+@using System;
+@using System.Linq;
+@using TTT;
+
+@namespace TTT.UI
+
+<root>
+    @if (_innocents.IsNullOrEmpty())
+    {
+        <text><text style="font-size: 16px;">No previous round history found... consider playing a round!</text></text>
+        return;
+    }
+
+    <div style="width: 50%">
+        <RoleList Players=@_innocents Role=@(new TTT.Innocent()) />
+    </div>
+    <div style="flex-direction: column; width: 50%">
+        <RoleList Players=@_detectives Role=@(new TTT.Detective()) />
+        <RoleList Players=@_traitors Role=@(new TTT.Traitor()) />
+    </div>
+</root>
+
+<style>
+    RoleSummary {}
+</style>

@@ -1,0 +1,16 @@
+{
+  "Slot": "UtilityEquipment",
+  "Spawnable": false,
+  "CanDrop": true,
+  "ViewModelPath": "",
+  "HandsModelPath": "",
+  "HoldType": "None",
+  "WorldModelPath": "models/dnascanner/huladoll.vmdl",
+  "DeployTime": 0,
+  "IsLimited": false,
+  "Price": 100,
+  "PurchasableBy": [],
+  "IconPath": "",
+  "Description": "",
+  "ClassName": "ttt_equipment_dnascanner"
+}

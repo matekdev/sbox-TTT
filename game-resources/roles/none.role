@@ -1,0 +1,24 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	data = 
+	{
+		Team = "None"
+		Color = "0.78431,0.78431,0.78431,1"
+		IconPath = resource:"ui/none.png"
+		DefaultCredits = 0
+		Weapons = [  ]
+		Carriables = [  ]
+		Perks = [  ]
+		CanRetrieveCredits = false
+		CanTeamChat = false
+		CanAttachCorpses = false
+		RequiredKarma = 0
+		Karma = 
+		{
+		}
+		Scoring = 
+		{
+		}
+		ClassName = "ttt_role_none"
+	}
+}

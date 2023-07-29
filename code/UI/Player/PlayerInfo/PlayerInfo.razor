@@ -1,0 +1,57 @@
+@using Sandbox;
+@using TTT;
+
+@namespace TTT.UI
+
+@if (!Hud.DisplayedPlayer.IsAlive)
+{
+    return;
+}
+
+<root class="opacity-heavy text-shadow">
+    @if (Hud.DisplayedPlayer.Role is not NoneRole)
+    {
+        <div class="role-container" style="background-color: @Hud.DisplayedPlayer.Role.Color.Hex">
+            <text>
+                <text>@Hud.DisplayedPlayer.Role.Title</text>
+            </text>
+        </div>
+    }
+
+    <div class="health-container background-color-primary @(Hud.DisplayedPlayer.Role is not NoneRole ? "left-flat" : "")">
+        ✚ <text>@Hud.DisplayedPlayer.Health.CeilToInt()</text>
+    </div>
+</root>
+
+<style>
+    PlayerInfo {
+        position: absolute;
+        bottom: 25px;
+        left: 25px;
+
+        .role-container {
+            padding: 2px 10px;
+            border-radius: 4 0 0 4;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .health-container {
+            width: 108px;
+            padding: 2px 10px;
+            border-radius: 4px;
+            justify-content: space-between;
+            font-size: 30px;
+            font-weight: bold;
+
+            &.hit {
+                color: rgb(255, 189, 189);
+            }
+
+            &.left-flat {
+                border-radius: 0 4 4 0;
+            }
+        }
+    }
+</style>

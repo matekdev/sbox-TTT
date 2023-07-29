@@ -1,0 +1,66 @@
+@using System;
+@using Sandbox;
+
+@namespace TTT.UI
+
+@if (Game.LocalPawn is not TTT.Player player)
+{
+    return;
+}
+
+<root class="text-shadow">
+    <div class="item-container">
+        @foreach (var itemInfo in (player.Team.GetShopItems()))
+        {
+            var canPurchase = player.CanPurchase(itemInfo);
+            <ShopItem
+            ItemInfo=@itemInfo
+            CanPurchase=@canPurchase
+            @onclick=@(() => {
+            if (canPurchase) TTT.Player.PurchaseItem( itemInfo.ResourceId ); })
+            @onmouseover=@(() => _selectedItem = itemInfo)
+            @onmouseout=@(() => _selectedItem = null) />
+        }
+    </div>
+    <text class="description @(_selectedItem is not null ? "fade-in" : "")">@_selectedItem?.Description</text>
+</root>
+
+@code {
+    private ItemInfo _selectedItem;
+
+    protected override int BuildHash()
+    {
+        var player = Game.LocalPawn as TTT.Player;
+        return HashCode.Combine(
+            player.Team.GetShopItems().HashCombine(itemInfo => HashCode.Combine(player.CanPurchase(itemInfo), itemInfo.GetHashCode())), 
+            _selectedItem
+        );
+    }
+}
+
+<style>
+    Shop {
+        align-items: center;
+        flex-direction: column;
+        transition: all 0.15s ease-out;
+        height: 100%;
+
+        .item-container {
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            overflow: scroll;
+        }
+
+        .description {
+            margin: 7px;
+            height: 30px;
+            font-size: 20px;
+            transition: opacity 0.25s ease-out;
+            opacity: 0;
+
+            &.fade-in {
+                opacity: 1;
+            }
+        }
+    }
+</style>

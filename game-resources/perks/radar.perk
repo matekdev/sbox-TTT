@@ -1,0 +1,11 @@
+{
+  "IsLimited": true,
+  "Price": 100,
+  "PurchasableBy": [
+    "Innocents",
+    "Traitors"
+  ],
+  "IconPath": "ui/perks/radar.png",
+  "Description": "Allows you to scan for life signs.",
+  "ClassName": "ttt_perk_radar"
+}

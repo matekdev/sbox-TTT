@@ -1,0 +1,63 @@
+@using System.Collections.Generic;
+@using System;
+@using Sandbox;
+
+@namespace TTT.UI
+
+<root>
+    <ScoreboardInfo />
+    <div class="background-color-primary rounded-bottom groups">
+        @{
+            var groups = new HashSet<PlayerStatus>();
+            var players = PlayersByStatus();
+
+            while (players.Count > 0)
+            {
+                var player = players.Dequeue();
+
+                if (!groups.Contains(player.Status))
+                {
+                    groups.Add(player.Status);
+                    <ScoreboardGroup Status=@player.Status />
+                }
+
+                <ScoreboardEntry Player=@player />
+            }
+        }
+    </div>
+</root>
+
+@code {
+    private PriorityQueue<TTT.Player, PlayerStatus> PlayersByStatus()
+    {
+        var players = new PriorityQueue<TTT.Player, PlayerStatus>();
+        foreach (var client in Game.Clients)
+            if (client.Pawn is TTT.Player player)
+                players.Enqueue(player, player.Status);
+        return players;
+    }
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine(Game.Clients.HashCombine(client => HashCode.Combine(client.SteamId, (int)(client.Pawn as
+        TTT.Player)?.Status)));
+    }
+}
+
+<style>
+    Scoreboard {
+        flex-direction: column;
+        transition: bottom 0.2s ease-out;
+        max-height: 70%;
+
+        .groups {
+            flex-direction: column;
+            padding: 8 8 12 8;
+            overflow: scroll;
+        }
+
+        &:intro {
+            bottom: 25px;
+        }
+    }
+</style>

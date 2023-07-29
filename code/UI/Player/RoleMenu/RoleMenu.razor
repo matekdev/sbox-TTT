@@ -1,0 +1,112 @@
+@using Sandbox;
+
+@namespace TTT.UI
+
+@if (Game.LocalPawn is not TTT.Player player || !player.IsAlive)
+{
+    return;
+}
+
+<root>
+    <div class="fullscreen-dark-background" />
+    <div class="menu">
+        <div class="header text-shadow">
+            <text class="title"><span style="color: @player.Role.Color.Hex">@player.Role.Title</span> Menu</text>
+            <text class="subtext"><span class="text-color-tertiary">@player.Credits credits</span> available</text>
+        </div>
+        <div class="tabs">
+            @if (_access[Tab.Shop].Invoke())
+            {
+                <button icon="shopping_cart" class="@(_currentTab == Tab.Shop ? "selected" : "")" @onclick=@(() => {_currentTab =
+                Tab.Shop;})>Shop</button>
+            }
+
+            @if (_access[Tab.DNA].Invoke())
+            {
+                <button icon="fingerprint" class="@(_currentTab == Tab.DNA ? "selected" : "")" @onclick=@(() => {_currentTab =
+                Tab.DNA;})>DNA</button>
+            }
+
+            @if (_access[Tab.Radio].Invoke())
+            {
+                <button icon="radio" class="@(_currentTab == Tab.Radio ? "selected" : "")" @onclick=@(() => {_currentTab =
+                Tab.Radio;})>Radio</button>
+            }
+
+            @if (_access[Tab.CreditTransfer].Invoke())
+            {
+                <button icon="swap_horiz" class="@(_currentTab == Tab.CreditTransfer ? "selected" : "")" @onclick=@(() => {_currentTab =
+                Tab.CreditTransfer;})>Credit Transfer</button>
+            }
+        </div>
+        <div class="content">
+            @if (_currentTab == Tab.Shop)
+            {
+                <Shop />
+            }
+            else if (_currentTab == Tab.DNA)
+            {
+                <DNAMenu />
+            }
+            else if (_currentTab == Tab.Radio)
+            {
+                <RadioMenu />
+            }
+            else if (_currentTab == Tab.CreditTransfer)
+            {
+                <CreditTransfer />
+            }
+        </div>
+    </div>
+</root>
+
+<style>
+    RoleMenu {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-self: center;
+        pointer-events: all;
+        z-index: 2;
+        transition: all 0.15s ease-out;
+        opacity: 0;
+
+        .menu {
+            justify-content: center;
+            align-self: center;
+            flex-direction: column;
+
+            .header {
+                flex-direction: column;
+
+                .title {
+                    font-size: 50px;
+                    font-weight: 500;
+                }
+
+                .subtext {
+                    font-size: 20px;
+                }
+            }
+
+            .tabs {
+                padding: 5px;
+
+                button {
+                    font-size: 20px;
+                    margin-right: 12px;
+
+                    &:not(.selected) {
+                        opacity: 0.3;
+                    }
+                }
+            }
+
+            .content {
+                width: 600px;
+                height: 400px;
+            }
+        }
+    }
+</style>

@@ -1,0 +1,10 @@
+{
+  "IsLimited": true,
+  "Price": 100,
+  "PurchasableBy": [
+    "Traitors"
+  ],
+  "IconPath": "ui/perks/armor.png",
+  "Description": "Reduces bullet damage by 30% when you get hit.",
+  "ClassName": "ttt_perk_armor"
+}

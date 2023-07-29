@@ -1,0 +1,18 @@
+{
+  "Slot": "UtilityEquipment",
+  "Spawnable": false,
+  "CanDrop": false,
+  "ViewModelPath": "",
+  "HandsModelPath": "",
+  "HoldType": "None",
+  "WorldModelPath": "models/radio/radioterror.vmdl",
+  "DeployTime": 0,
+  "IsLimited": true,
+  "Price": 100,
+  "PurchasableBy": [
+    "Traitors"
+  ],
+  "IconPath": "ui/equipment/radio.png",
+  "Description": "Place the radio somewhere, and then play sounds on it using the Radio tab in this menu.",
+  "ClassName": "ttt_equipment_radio"
+}

@@ -1,0 +1,51 @@
+@namespace TTT.UI
+
+<root class="background-color-primary opacity-heavy text-shadow rounded">
+    <img src="avatar:@_client.SteamId" class="avatar circle" />
+    <text class="name">@_client.Name</text>
+</root>
+
+@code {
+    private string BorderColor()
+    {
+        if (_client.Pawn is not TTT.Player player || !player.IsAlive)
+            return PlayerStatus.Spectator.GetColor().Hex;
+
+        if (player.Role is Detective)
+            return player.Role.Color.Hex;
+
+        return PlayerStatus.Alive.GetColor().Hex;
+    }
+}
+
+<style>
+    VoiceChatEntry {
+        flex-direction: row;
+        padding: 8px 8px;
+        margin-bottom: 5px;
+        align-items: center;
+        transition: all 0.05s ease-out;
+        border-bottom: 4px;
+        border-color: @BorderColor();
+
+        &:intro {
+            opacity: 0;
+            left: 10px;
+        }
+
+        &:outro {
+            opacity: 0;
+            left: 10px;
+        }
+
+        .avatar {
+            width: 25px;
+            height: 25px;
+        }
+
+        .name {
+            font-weight: 700;
+            font-size: 16px;
+        }
+    }
+</style>

@@ -1,0 +1,32 @@
+@using System;
+
+@namespace TTT.UI
+
+@if (!Hud.DisplayedPlayer.IsRoleKnown)
+{
+	return;
+}
+
+<root>
+	@foreach (var perk in Hud.DisplayedPlayer.Perks)
+	{
+		<PerkSlot Perk=@perk />
+	}
+</root>
+
+@code
+{
+	protected override int BuildHash()
+	{
+		return HashCode.Combine(Hud.DisplayedPlayer.Perks.HashCombine(perk => perk.GetHashCode()));
+	}
+}
+
+<style>
+	PerkDisplay {
+		display: flex;
+		align-items: flex-end;
+		flex-direction: column-reverse;
+		margin-bottom: 15px;
+	}
+</style>

@@ -1,0 +1,18 @@
+{
+  "Slot": "UtilityEquipment",
+  "Spawnable": false,
+  "CanDrop": false,
+  "ViewModelPath": "",
+  "HandsModelPath": "",
+  "HoldType": "None",
+  "WorldModelPath": "models/health_station/health_station.vmdl",
+  "DeployTime": 0,
+  "IsLimited": true,
+  "Price": 100,
+  "PurchasableBy": [
+    "Innocents"
+  ],
+  "IconPath": "ui/equipment/microwave.png",
+  "Description": "A modified microwave which dispenses health to any injured players.",
+  "ClassName": "ttt_equipment_healthstation"
+}

@@ -1,0 +1,74 @@
+@using Sandbox;
+@using System;
+
+@namespace TTT.UI
+
+@if (Game.LocalPawn is not TTT.Player player || player.IsAlive)
+{
+	return;
+}
+
+<root>
+	<div class="text-shadow" style="align-items: center; flex-direction: column;">
+		@if (Spectating.Player.IsValid())
+		{
+			<div class="swap-panel">
+				<text class="name"
+				  style="color: @Hud.DisplayedPlayer?.Role?.Color.Hex">@Hud.DisplayedPlayer?.Client?.Name</text>
+				<div style="align-items: center;">
+					<text>Press</text>
+					<InputGlyph action=@TTT.InputAction.PrimaryAttack />
+					<text>or</text>
+					<InputGlyph action=@TTT.InputAction.SecondaryAttack />
+					<text>to swap active player</text>
+				</div>
+			</div>
+		}
+
+		@if (!player.Prop.IsValid() && !Spectating.Player.IsValid())
+		{
+			<div style="align-items: center;">
+				<text>Press</text>
+				<InputGlyph action=@TTT.InputAction.Use />
+				<text>to spectate a player or possess a prop</text>
+			</div>
+		}
+
+		<div style="align-items: center;">
+			<text>Press</text>
+			<InputGlyph action=@(player.Prop.IsValid() ? @TTT.InputAction.Duck : @TTT.InputAction.Jump) />
+			<text>@(player.Prop.IsValid() ? "to no longer possess the prop" : "to change spectating camera mode")</text>
+		</div>
+	</div>
+</root>
+
+@code
+{
+	protected override int BuildHash()
+	{
+		return HashCode.Combine(Hud.DisplayedPlayer.SteamId, Hud.DisplayedPlayer.IsAlive, Hud.DisplayedPlayer.Prop);
+	}
+}
+
+<style>
+	SpectatingPrompts {
+		position: absolute;
+		left: 50%;
+		bottom: 25px;
+		transform: translateX(-50%);
+		flex-direction: column;
+		font-size: 17px;
+		font-weight: 500;
+		align-items: center;
+
+		.name {
+		font-size: 30px;
+		font-weight: 600;
+		}
+
+	.swap-panel {
+		align-items: center;
+		flex-direction: column;
+	}
+
+	}</style>

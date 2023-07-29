@@ -1,0 +1,18 @@
+{
+  "Slot": "UtilityEquipment",
+  "Spawnable": false,
+  "CanDrop": false,
+  "ViewModelPath": "",
+  "HandsModelPath": "",
+  "HoldType": "None",
+  "WorldModelPath": "models/decoy/decoy.vmdl",
+  "DeployTime": 0,
+  "IsLimited": true,
+  "Price": 100,
+  "PurchasableBy": [
+    "Traitors"
+  ],
+  "IconPath": "ui/equipment/decoy.png",
+  "Description": "Shows a fake radar sign to detectives, and makes their DNA scanner show the location of the Decoy if they scan for your DNA.",
+  "ClassName": "ttt_equipment_decoy"
+}

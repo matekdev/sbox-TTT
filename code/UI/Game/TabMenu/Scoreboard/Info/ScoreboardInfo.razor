@@ -1,0 +1,76 @@
+@using TTT;
+@using Sandbox;
+@using System;
+
+@namespace TTT.UI
+
+<root class="background-color-primary rounded-top text-shadow">
+    <div class="server-information">
+        <text class="title" text="TTT" />
+    </div>
+    <div class="server-data">
+        <text style="font-weight: bold;">@Game.Server.MapIdent</text>
+        <text>@($"{Game.Clients.Count} / {Game.Server.MaxPlayers} Players")</text>
+        @{
+            var roundsRemaining = TTT.GameManager.RoundLimit - TTT.GameManager.Current.TotalRoundsPlayed;
+            var suffix = roundsRemaining == 1 ? "round" : "rounds";
+            var timeLeft = TTT.GameManager.Current.TimeUntilMapSwitch.Relative;
+            var timer = timeLeft < 0 ? "00:00:00" : TimeSpan.FromSeconds(TTT.GameManager.Current.TimeUntilMapSwitch.Relative).ToString(@"hh\:mm\:ss");
+    <text>@($"Map will change in {roundsRemaining} {suffix} or in {timer}")</text>
+        }
+    </div>
+</root>
+
+@code {
+    protected override int BuildHash()
+    {
+        return HashCode.Combine(
+            Game.Clients.Count,
+            Game.Server.MaxPlayers,
+            TTT.GameManager.RoundLimit,
+            TTT.GameManager.Current.TotalRoundsPlayed,
+            TTT.GameManager.Current.TimeUntilMapSwitch.ToString()
+            );
+    }
+}
+
+<style>
+    ScoreboardInfo {
+        flex-direction: row;
+        max-height: 100px;
+        justify-content: space-between;
+        padding: 15;
+        flex-shrink: 0;
+        align-items: center;
+
+        .logo {
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 75px;
+            height: 75px;
+        }
+
+        .server-information {
+            flex-grow: 1;
+            flex-direction: column;
+            padding: 5px;
+
+            .title {
+                font-size: 40px;
+                font-weight: bolder;
+            }
+
+            .url {
+                font-weight: 300;
+                font-size: 15px;
+            }
+        }
+
+        .server-data {
+            flex-direction: column;
+            align-items: flex-end;
+            font-weight: 300;
+            font-size: 15px;
+        }
+    }
+</style>

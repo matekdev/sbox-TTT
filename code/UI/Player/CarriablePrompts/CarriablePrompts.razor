@@ -1,0 +1,53 @@
+@using System;
+@using Sandbox;
+
+@namespace TTT.UI
+
+@if (Game.LocalPawn is not TTT.Player player || player.ActiveCarriable is null)
+{
+    return;
+}
+
+<root>
+    <div class="text-shadow">
+        @foreach(var binding in player.ActiveCarriable.BindingPrompts)
+        {
+            @if (!binding.Text.IsNullOrEmpty()) 
+            {
+                <div class="binding">
+                    <InputGlyph action=@binding.Action />
+                    <text>@binding.Text</text>
+                </div>
+            }
+        }
+    </div>
+</root>
+
+@code {
+    protected override int BuildHash()
+    {
+        var player = Game.LocalPawn as TTT.Player;
+
+        return HashCode.Combine(player?.ActiveCarriable?.BindingPrompts.HashCombine(b => HashCode.Combine(b.Action.GetHashCode(), b.Text.GetHashCode())));
+    }
+}
+
+<style>
+    CarriablePrompts {
+        position: absolute;
+        left: 50%;
+        bottom: 25px;
+        transform: translateX(-50%);
+        font-size: 17px;
+        font-weight: 500;
+
+        .binding {
+            margin: 5px;
+            align-items: center;
+        }
+
+        InputGlyph {
+            margin: 0px;
+        }
+    }
+</style>

@@ -1,0 +1,42 @@
+@using System;
+@using System.Linq;
+
+@namespace TTT.UI
+
+@if (Hud.DisplayedPlayer.Inventory.Count == 0)
+{
+    return;
+}
+
+<root class="opacity-heavy text-shadow">
+    @foreach (var carriable in Hud.DisplayedPlayer.Inventory)
+    {
+        <InventorySlot Carriable=@carriable />
+    }
+
+    @{
+        SortChildren((p1, p2) =>
+            {
+                var s1 = p1 as InventorySlot;
+                var s2 = p2 as InventorySlot;
+
+                var result = s1.Carriable.Info.Slot.CompareTo(s2.Carriable.Info.Slot);
+                return result != 0
+        ? result
+        : string.Compare(s1.Carriable.Info.Title, s2.Carriable.Info.Title, StringComparison.Ordinal);
+        });
+    }
+</root>
+
+<style>
+    InventorySelection {
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        &.hide {
+            display: none;
+        }
+    }
+</style>

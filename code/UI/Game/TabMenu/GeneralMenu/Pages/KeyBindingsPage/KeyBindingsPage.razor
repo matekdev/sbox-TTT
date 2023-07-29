@@ -1,0 +1,150 @@
+@namespace TTT.UI
+
+<root>
+    <text>You can change your bindings in the s&box options menu or through console.</text>
+    <br />
+
+    <text class="h1">Movement</text>
+    <div>
+        <text>Forward:</text>
+        <inputglyph action="forward" />
+    </div>
+    <div>
+        <text>Back:</text>
+        <inputglyph action="back" />
+    </div>
+    <div>
+        <text>Left:</text>
+        <inputglyph action="left" />
+    </div>
+    <div>
+        <text>Right:</text>
+        <inputglyph action="right" />
+    </div>
+    <div>
+        <text>Jump:</text>
+        <inputglyph action=@InputAction.Jump />
+    </div>
+    <div>
+        <text>Crouch:</text>
+        <inputglyph action=@InputAction.Duck />
+    </div>
+    <div>
+        <text>Walk:</text>
+        <inputglyph action=@InputAction.Run />
+    </div>
+    <text class="h1">Weapons</text>
+    <div>
+        <text>Shoot:</text>
+        <inputglyph action=@InputAction.PrimaryAttack />
+    </div>
+    <div>
+        <text>Zoom:</text>
+        <inputglyph action=@InputAction.SecondaryAttack />
+    </div>
+    <div>
+        <text>Reload:</text>
+        <inputglyph action=@InputAction.Reload />
+    </div>
+    <div>
+        <text>Drop weapon:</text>
+        <inputglyph action=@InputAction.Drop />
+    </div>
+    <div>
+        <text>Drop ammo:</text>
+        <inputglyph action=@InputAction.Run />
+        <text>+</text>
+        <inputglyph action=@InputAction.Drop />
+    </div>
+    <div>
+        <text>Last weapon used:</text>
+        <inputglyph action=@InputAction.Menu />
+    </div>
+    <text class="h1">Actions</text>
+    <div>
+        <text>Use:</text>
+        <inputglyph action=@InputAction.Use />
+    </div>
+    <div>
+        <text>Search body:</text>
+        <inputglyph action=@InputAction.Use />
+    </div>
+    <div>
+        <text>Covert search body:</text>
+        <inputglyph action=@InputAction.Run />
+        <text>+</text>
+        <inputglyph action=@InputAction.Use />
+    </div>
+    <div>
+        <text>Flashlight:</text>
+        <inputglyph action=@InputAction.Flashlight />
+    </div>
+    <div>
+        <text>Disguiser:</text>
+        <inputglyph action=@InputAction.Grenade />
+    </div>
+    <text class="h1">Communication</text>
+    <div>
+        <text>Voice chat:</text>
+        <inputglyph action=@InputAction.Voice />
+    </div>
+    <div>
+        <text>Quick Chat:</text>
+        <inputglyph action=@InputAction.Zoom />
+    </div>
+    <div>
+        <text>Team text chat:</text>
+        <inputglyph action=@InputAction.Score />
+    </div>
+    <div>
+        <text>Team voice chat:</text>
+        <inputglyph action=@InputAction.Run />
+    </div>
+    <text class="h1">Menus</text>
+    <div>
+        <text>Scoreboard & Settings:</text>
+        <inputglyph action=@InputAction.Score />
+    </div>
+    <div>
+        <text>Quick Shop:</text>
+        <inputglyph action=@InputAction.View />
+    </div>
+</root>
+
+<style>
+    KeyBindingsPage {
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow: scroll;
+        width: 100%;
+        color: white;
+        flex-shrink: 0;
+        font-size: 16px;
+
+        .h1 {
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 10px;
+
+            label {
+                font-size: 25px;
+            }
+        }
+
+        div {
+            align-items: center;
+            flex-shrink: 0;
+
+            inputglyph {
+                margin: 0px;
+            }
+        }
+
+        inputglyph,
+        text {
+            flex-shrink: 0;
+            margin-right: 10px;
+        }
+    }
+</style>

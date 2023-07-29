@@ -1,0 +1,22 @@
+@using Sandbox.UI;
+
+@namespace TTT.UI
+
+<root>
+    <RoleSummary />
+</root>
+
+<style>
+    RoundSummaryPage {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0 0 0 5;
+        width: 100%;
+
+        button {
+            &:not(.selected) {
+                opacity: 0.3;
+            }
+        }
+    }
+</style>

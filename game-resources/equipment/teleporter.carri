@@ -1,0 +1,19 @@
+{
+  "Slot": "UtilityEquipment",
+  "Spawnable": false,
+  "CanDrop": true,
+  "ViewModelPath": "",
+  "HandsModelPath": "",
+  "HoldType": "None",
+  "WorldModelPath": "models/teleporter/teleporter.vmdl",
+  "DeployTime": 0.6,
+  "IsLimited": true,
+  "Price": 100,
+  "PurchasableBy": [
+    "Innocents",
+    "Traitors"
+  ],
+  "IconPath": "ui/equipment/teleporter.png",
+  "Description": "Teleport to a previously marked spot.",
+  "ClassName": "ttt_equipment_teleporter"
+}

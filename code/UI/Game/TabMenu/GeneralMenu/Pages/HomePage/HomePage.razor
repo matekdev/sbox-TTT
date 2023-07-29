@@ -1,0 +1,57 @@
+@using Sandbox;
+@using System;
+
+@namespace TTT.UI
+
+<root>
+	<button class="alt" icon="leaderboard" @onclick=@GoToRoundSummaryPage>Round Summary</button>
+	<button class="alt" icon="videocam" @onclick=@ToggleForcedSpectating>Force Spectator Mode - @(Spectating.IsForced ? "Enabled" : "Disabled")</button>
+	<button icon="how_to_vote" @onclick=@RockTheVote class="alt @(Game.LocalClient.HasRockedTheVote() ? "inactive" : "")">Rock The Vote</button>
+	<button class="alt" icon="adjust" @onclick=@GoToCrosshairPage>Crosshair Customization</button>
+	<button class="alt" icon="keyboard" @onclick=@GoToKeyBindingsPage>Keybindings</button>
+</root>
+
+@code
+{
+	public void GoToRoundSummaryPage()
+	{
+		GeneralMenu.Instance.AddPage(new RoundSummaryPage());
+	}
+
+	public void GoToKeyBindingsPage()
+	{
+		GeneralMenu.Instance.AddPage(new KeyBindingsPage());
+	}
+
+	public void GoToCrosshairPage()
+	{
+		GeneralMenu.Instance.AddPage(new CrosshairPage());
+	}
+
+	public void RockTheVote()
+	{
+		TTT.GameManager.RockTheVote();
+	}
+
+	public void ToggleForcedSpectating()
+	{
+		Spectating.IsForced = !Spectating.IsForced;
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine(Spectating.IsForced, Game.LocalClient.HasRockedTheVote());
+	}
+}
+
+<style>
+	HomePage {
+		flex-direction: column;
+		overflow: scroll;
+		width: 100%;
+
+		button {
+			margin-bottom: 10px;
+		}
+	}
+</style>
